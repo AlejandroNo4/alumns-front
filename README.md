@@ -28,11 +28,11 @@
 
 - When logged in, "dashboard" will show each alumn that has been created (with rails db:seed) and each with four quarters, but no "grades" yet.
 
-<img src="./empty_screenshot.png" alt="app screenshot" width="500px" />
+<img src="./empty_screenshot.png" alt="app screenshot" width="700px" />
 
 - To create a "grade", fill out the form and submit it, this automatically will add the grade to the respective user.
 
-<img src="./app_screenshot.png" alt="app screenshot" width="500px" />
+<img src="./app_screenshot.png" alt="app screenshot" width="700px" />
 
 - When sending a bad request, a banner will appear at the top of the form.
 
