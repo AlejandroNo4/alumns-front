@@ -2,74 +2,40 @@
 
 # Project Name
 
-> Description the project.
+> Front-end app where teachers can manage grades on alumns.
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
+- React "^18.2.0"
+- React Router Dom "^6.3.0"
+- Axios "^0.27.2"
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+- Git clone the [API](https://github.com/AlejandroNo4/alumns-API) and run **"bundle install -> rails db:seed"**
 
+- Important 🚦❗❗❗ This project will need to be run locally at the same time as the API, to run the API, run:
 
-To get a local copy up and running follow these simple example steps.
+      rails s -p 3001
 
-### Prerequisites
+- Clone this repo and run react as usual (**"npm install -> npm start"**)
 
-### Setup
+- The route "/" will ask you to sign up or log in. You may use a pre-made account with the credentials:
 
-### Install
+      email: 'test@mail.com', password: 'password'
 
-### Usage
+- When logged in, "dashboard" will show each alumn that has been created (with rails db:seed) and each with four quarters, but no "grades" yet.
 
-### Run tests
+<img src="./empty_screenshot.png" alt="app screenshot" width="500px" />
 
-### Deployment
+- To create a "grade", fill out the form and submit it, this automatically will add the grade to the respective user.
 
+<img src="./app_screenshot.png" alt="app screenshot" width="500px" />
 
+- When sending a bad request, a banner will appear at the top of the form.
 
-## Authors
+- The teacher can add "Alumns" and "Courses" as well.
 
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
-
-## Show your support
-
-Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
-## 📝 License
-
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+- The User can create an account, log in or log out.
