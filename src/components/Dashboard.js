@@ -4,12 +4,14 @@ import AddCourse from './AddCourse';
 import AddGrade from './AddGrade';
 import AlumnList from './AlumnList';
 import useRequestGet from '../api/useRequestGet';
+import ErrorBanner from './ErrorBanner';
 
 const Dashboard = (props) => {
   const { name, handleLogout } = props;
   const [allAlumns, setAlumns] = useState([]);
   const [alumnCourses, setAlumniCourses] = useState({});
   const [registeredCourses, setCourses] = useState([]);
+  const [errors, setErrors] = useState([])
 
   const alumnStatus = useRequestGet('alumns');
   const courseStatus = useRequestGet('courses');
@@ -17,12 +19,14 @@ const Dashboard = (props) => {
   useEffect(() => {
     if (!alumnStatus.loading) {
       setAlumns(alumnStatus.data);
+      setErrors(alumnStatus.errors)
     }
   }, [alumnStatus.loading]);
 
   useEffect(() => {
     if (!courseStatus.loading) {
       setCourses(courseStatus.data);
+      setErrors(alumnStatus.errors)
       const coursesWithIds = courseStatus.data.reduce(
         (obj, item) => ({ ...obj, [item.id]: item.name }),
         {}
@@ -33,6 +37,7 @@ const Dashboard = (props) => {
 
   return (
     <div className='main-container'>
+      {errors.length > 0 && <ErrorBanner errorsArr={errors} />}
       <h1 className='main-name'>Hello {name}!</h1>
       <div className='w-100 d-flex'>
         <AddAlumn />

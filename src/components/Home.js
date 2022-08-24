@@ -3,25 +3,20 @@ import axios from 'axios';
 import NotLogged from './NotLogged';
 import Dashboard from './Dashboard';
 import ErrorBanner from './ErrorBanner';
+import useRequestGet from '../api/useRequestGet';
 
 const Home = () => {
   const [teacher, setTeacher] = useState({});
   const [errorMessages, setErrors] = useState([]);
 
-  const logged_in = async () => {
-    try {
-      const request = await axios.get(
-        'http://localhost:3001/api/v1/logged_in',
-        {
-          withCredentials: true,
-        }
-      );
-      setTeacher(request.data);
-    } catch (error) {
-      const { data } = error.response;
-      setErrors(Object.keys(data).map((o) => `${o}: ${data[o]}`));
+  const logged = useRequestGet('logged_in');
+
+  useEffect(() => {
+    if (!logged.loading) {
+      setTeacher(logged.data);
+      setErrors(logged.errors);
     }
-  };
+  }, [logged.loading]);
 
   const handleLogout = async () => {
     try {
@@ -35,17 +30,20 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
-    logged_in();
-  }, []);
-
   return (
     <div>
-      {errorMessages.length > 0 && <ErrorBanner errorsArr={errorMessages} />}
-      {!teacher.logged_in ? (
-        <NotLogged />
-      ) : (
-        <Dashboard name={teacher.name} handleLogout={handleLogout} />
+      {logged.loading && <h1>Loading</h1>}
+      {!logged.loading && (
+        <div>
+          {errorMessages.length > 0 && (
+            <ErrorBanner errorsArr={errorMessages} />
+          )}
+          {!teacher.logged_in ? (
+            <NotLogged />
+          ) : (
+            <Dashboard name={teacher.name} handleLogout={handleLogout} />
+          )}
+        </div>
       )}
     </div>
   );
