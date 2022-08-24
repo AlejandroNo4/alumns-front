@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Alumns Front
 
 > Front-end app where teachers can manage grades on alumns.
 
