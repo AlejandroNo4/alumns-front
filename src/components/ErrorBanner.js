@@ -12,15 +12,15 @@ const ErrorBanner = ({ errorsArr }) => {
   }, [errorsArr]);
 
   return (
-    <div className={`${viz} justify-center align-center error-banner`} >
+    <div className={`${viz} justify-center align-center error-banner`}>
       <ul>
         {errorsArr.map((e) => (
           <li key={e}>{e}</li>
         ))}
       </ul>
       <button className='close-error' onClick={handleChange} type='button'>
-          +
-        </button>
+        +
+      </button>
     </div>
   );
 };

@@ -31,8 +31,8 @@ const LogIn = () => {
         );
         navigate('/');
       } catch (error) {
-        const {data} = error.response
-        setErrors(Object.keys(data).map(o => `${o}: ${data[o]}`));
+        const { data } = error.response;
+        setErrors(Object.keys(data).map((o) => `${o}: ${data[o]}`));
       }
     };
     request();
@@ -44,22 +44,27 @@ const LogIn = () => {
       <h1 className='title-session'>Log in with your account</h1>
       <form className='d-flex flex-column form-sign-up' onSubmit={handleSubmit}>
         <input
-        className='input-text'
+          className='input-text'
           type='email'
           id='email'
           onChange={handleChange}
           placeholder='email'
         />
         <input
-        className='input-text'
+          className='input-text'
           type='password'
           id='password'
           onChange={handleChange}
           placeholder='password'
         />
-        <button className='session-btn' type='submit'>Log in</button>
+        <button className='session-btn' type='submit'>
+          Log in
+        </button>
       </form>
-      <p>Don't ave an account?</p><Link className='link' to={'/sign-up'}>Sign Up</Link>
+      <p>Don't ave an account?</p>
+      <Link className='link' to={'/sign-up'}>
+        Sign Up
+      </Link>
     </div>
   );
 };

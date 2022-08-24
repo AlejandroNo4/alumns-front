@@ -6,9 +6,8 @@ const AddCourse = () => {
   const [name, setName] = useState('');
   const [errorMessages, setErrors] = useState([]);
 
-
   const hanldeSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const request = async () => {
       try {
         await axios.post(
@@ -20,12 +19,11 @@ const AddCourse = () => {
         );
         window.location.reload();
       } catch (error) {
-        const {data} = error.response
-        setErrors(Object.keys(data).map(o => `${o}: ${data[o]}`));
+        const { data } = error.response;
+        setErrors(Object.keys(data).map((o) => `${o}: ${data[o]}`));
       }
     };
     request();
-
   };
 
   const handleChange = (e) => {
@@ -35,8 +33,16 @@ const AddCourse = () => {
     <div className='form-wrapper w-100 justify-center d-flex flex-column align-center'>
       {errorMessages.length > 0 && <ErrorBanner errorsArr={errorMessages} />}
       <h2 className='form-title'>Add new Course</h2>
-      <form className='d-flex align-center flex-column w-100' onSubmit={hanldeSubmit}>
-        <input placeholder='Name' className='input-text w-80' type='text' onChange={handleChange} />
+      <form
+        className='d-flex align-center flex-column w-100'
+        onSubmit={hanldeSubmit}
+      >
+        <input
+          placeholder='Name'
+          className='input-text w-80'
+          type='text'
+          onChange={handleChange}
+        />
         <button className='button-submit'>Add course</button>
       </form>
     </div>

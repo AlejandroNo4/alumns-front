@@ -33,8 +33,8 @@ const SignUp = () => {
         );
         navigate('/');
       } catch (error) {
-        const {data} = error.response
-        setErrors(Object.keys(data).map(o => `${o}: ${data[o]}`));
+        const { data } = error.response;
+        setErrors(Object.keys(data).map((o) => `${o}: ${data[o]}`));
       }
     };
     request();
@@ -73,9 +73,14 @@ const SignUp = () => {
           onChange={handleChange}
           placeholder='password confirmation'
         />
-        <button className='session-btn' type='submit'>SignUp</button>
+        <button className='session-btn' type='submit'>
+          SignUp
+        </button>
       </form>
-      <p>Have an account?</p><Link className='link' to={'/login'}>Log In</Link>
+      <p>Have an account?</p>
+      <Link className='link' to={'/login'}>
+        Log In
+      </Link>
     </div>
   );
 };

@@ -35,8 +35,8 @@ const AddGrade = ({ alumns, courses }) => {
         );
         window.location.reload();
       } catch (error) {
-        const {data} = error.response
-        setErrors(Object.keys(data).map(o => `${o}: ${data[o]}`));
+        const { data } = error.response;
+        setErrors(Object.keys(data).map((o) => `${o}: ${data[o]}`));
       }
     };
     request();
@@ -63,14 +63,32 @@ const AddGrade = ({ alumns, courses }) => {
         <div className='d-flex number-selector-wrapper'>
           <div className='d-flex align-center p-15'>
             <p>Grade:</p>
-            <input className='number-selector' type='number' min='0' max='10' id='note' value={gradeValues.note} onChange={handleChange} />
+            <input
+              className='number-selector'
+              type='number'
+              min='0'
+              max='10'
+              id='note'
+              value={gradeValues.note}
+              onChange={handleChange}
+            />
           </div>
           <div className='d-flex align-center p-15'>
             <p>Quarter:</p>
-            <input className='number-selector' type='number' min='1' max='4' id='quarter' value={gradeValues.quarter} onChange={handleChange} />
+            <input
+              className='number-selector'
+              type='number'
+              min='1'
+              max='4'
+              id='quarter'
+              value={gradeValues.quarter}
+              onChange={handleChange}
+            />
           </div>
         </div>
-        <button className='button-submit' type='submit'>Add Grade</button>
+        <button className='button-submit' type='submit'>
+          Add Grade
+        </button>
       </form>
     </div>
   );
